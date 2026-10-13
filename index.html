@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTOREXTREME | Agency & Media Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILOS GENERALES Y PALETA DE COLORES --- */
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #181818;
+            --accent-red: #ff0033;
+            --accent-yellow: #ccff00;
+            --text-white: #ffffff;
+            --text-gray: #a1a1a1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(13, 13, 13, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-red);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.vip-link {
+            color: var(--accent-yellow);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+            background: linear-gradient(180deg, rgba(13,13,13,0.6) 0%, rgba(13,13,13,1) 100%), url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1350&q=80') center/cover;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(255, 0, 51, 0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-red);
+            color: var(--text-white);
+            padding: 15px 30px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #d6002b;
+            transform: scale(1.05);
+        }
+
+        /* --- SECCIÓN CATÁLOGO / PROMOTORAS --- */
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            margin: 50px 0 30px;
+        }
+
+        .section-title span {
+            color: var(--accent-yellow);
+        }
+
+        .grid-talentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .card-talento {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .card-talento:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 350px;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .badge-vip {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-yellow);
+            color: #000;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 900;
+            border-radius: 3px;
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        .card-info p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* --- FORMULARIO DE REGISTRO --- */
+        .registro-container {
+            background-color: var(--card-bg);
+            width: 90%;
+            max-width: 700px;
+            margin: 0 auto 80px;
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--accent-red);
+            box-shadow: 0 0 20px rgba(255, 0, 51, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: #0d0d0d;
+            border: 1px solid #333;
+            color: var(--text-white);
+            border-radius: 5px;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent-yellow);
+            outline: none;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .checkbox-group input {
+            width: auto;
+        }
+
+        .terminos-box {
+            background-color: #0d0d0d;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: var(--text-gray);
+            height: 100px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+            border: 1px solid #2a2a2a;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #050505;
+            color: var(--text-gray);
+            font-size: 14px;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">MOTOR<span>EXTREME</span></div>
+        <nav>
+            <a href="#talentos">Talentos</a>
+            <a href="#registro">Unirme como Promotora</a>
+            <a href="#registro" class="vip-link">Zona VIP 🔒</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Donde la Pasión y el Talento Se Encuentran</h1>
+        <p>La plataforma oficial de captación de promotoras, modelos de protocolo y colaboraciones para los mejores eventos de motor, Car Audio y Piques.</p>
+        <a href="#registro" class="btn-primary">¡Regístrate como Promotora Oficial!</a>
+    </section>
+
+    <!-- SECCIÓN CATÁLOGOS -->
+    <section id="talentos">
+        <h2 class="section-title">Staff & <span>Promotoras Oficiales</span></h2>
+        
+        <div class="grid-talentos">
+            <!-- Card 1 -->
+            <div class="card-talento">
+                <div class="badge-vip">VIP CREATOR</div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-info">
+                    <h3>Valeria M.</h3>
+                    <p>Car Audio & Expo Tuning | Caracas</p>
+                    <a href="#registro" class="btn-primary" style="padding: 8px 15px; font-size: 12px; display: inline-block;">Ver Perfil</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-talento">
+                <div class="badge-vip">STAFF</div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-info">
+                    <h3>Camila R.</h3>
+                    <p>Modelo de Protocolo & Piques | Maracay</p>
+                    <a href="#registro" class="btn-primary" style="padding: 8px 15px; font-size: 12px; display: inline-block;">Ver Perfil</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card-talento">
+                <div class="badge-vip">VIP CREATOR</div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-info">
+                    <h3>Andrea G.</h3>
+                    <p>Host & Presentadora de Eventos | Valencia</p>
+                    <a href="#registro" class="btn-primary" style="padding: 8px 15px; font-size: 12px; display: inline-block;">Ver Perfil</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN REGISTRO -->
+    <section id="registro">
+        <h2 class="section-title">Únete al Staff <span>Motorextreme</span></h2>
+        
+        <div class="registro-container">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre y Apellido / Alias Artístico:</label>
+                    <input type="text" id="nombre" required placeholder="Ej. Camila R.">
+                </div>
+
+                <div class="form-group">
+                    <label for="edad">Edad (+18 obligatoria):</label>
+                    <input type="number" id="edad" min="18" required placeholder="Ingresa tu edad">
+                </div>
+
+                <div class="form-group">
+                    <label for="ubicacion">Ubicación (Ciudad / Estado):</label>
+                    <input type="text" id="ubicacion" required placeholder="Ej. Maracay, Aragua">
+                </div>
+
+                <div class="form-group">
+                    <label for="contacto">Teléfono WhatsApp:</label>
+                    <input type="tel" id="contacto" required placeholder="+58 412...">
+                </div>
+
+                <div class="form-group">
+                    <label for="instagram">Usuario de Instagram / TikTok:</label>
+                    <input type="text" id="instagram" required placeholder="@tuusuario">
+                </div>
+
+                <div class="form-group">
+                    <label for="especialidad">Especialidad de Interés:</label>
+                    <select id="especialidad" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="protocolo">Promotora de Marca / Protocolo</option>
+                        <option value="expo">Modelo de Exposición / Car Audio / Piques</option>
+                        <option value="host">Creadora de Contenido / Host / Entrevistadora</option>
+                        <option value="glamour">Imagen para Fotografía / Glamour VIP</option>
+                    </select>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="vip_check">
+                    <label for="vip_check" style="font-size: 13px; color: var(--accent-yellow);">Deseo activar mi perfil para Monetización Directa y Contenido Exclusivo VIP 💰</label>
+                </div>
+
+                <br>
+
+                <label>Términos y Condiciones:</label>
+                <div class="terminos-box">
+                    <p><strong>1. BENEFICIOS EXCLUSIVOS:</strong> Portafolio público accesible para marcas automotrices, eventos tuning y piques. Opción de monetización directa en Zona VIP.</p>
+                    <p><strong>2. COMPROMISO:</strong> Verificación obligatoria de mayoría de edad (+18). Autenticidad total en las fotos y videos publicados.</p>
+                    <p><strong>3. SEGURIDAD:</strong> Tus datos privados de contacto están protegidos y solo se comparten con marcas previamente validadas por el equipo de Motorextreme.</p>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%;">Enviar Solicitud de Registro 🏁</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 MOTOREXTREME. Todos los derechos reservados. | Agency & Media Platform</p>
+    </footer>
+
+</body>
+</html>
