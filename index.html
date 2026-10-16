@@ -1,207 +1,281 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOTOREXTREME | La Expo Automotora del País</title>
-    <!-- Google Fonts & Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
-        .bg-carbon { background: linear-gradient(135deg, #0b0f19 0%, #151b2b 100%); }
-        .accent-red { color: #ff2a2a; }
-        .bg-red-neon { background-color: #ff2a2a; box-shadow: 0 0 25px rgba(255, 42, 42, 0.5); }
-    </style>
-</head>
-<body class="bg-carbon min-h-screen relative overflow-x-hidden">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motor Extreme Maracay - Reclutamiento de Promotoras</title>
+  <!-- Iconos de FontAwesome para WhatsApp y Envíos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Estilos generales Dark / Racing */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
 
-    <!-- Notificación de Bienvenida Flotante -->
-    <div id="welcomeAlert" class="fixed top-5 right-5 z-50 max-w-sm bg-slate-900/95 border border-red-500/60 backdrop-blur-md p-4 rounded-2xl shadow-2xl flex items-start gap-3 transition-all duration-500">
-        <div class="bg-red-600 p-2.5 rounded-xl text-white font-bold text-lg shadow-lg">🚀</div>
-        <div class="flex-1">
-            <h4 class="font-bold text-white text-sm">¡Bienvenido a Motorextreme!</h4>
-            <p class="text-xs text-slate-300 mt-1">La expo automotora del país. Explora nuestros eventos y postúlate como promotora oficial.</p>
+    header {
+      background: linear-gradient(135deg, #000000, #1e1e1e);
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 3px solid #ff4500;
+    }
+
+    header h1 {
+      color: #ff4500;
+      font-size: 2.5rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      color: #cccccc;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Sección de Beneficios */
+    .beneficios-section {
+      margin-bottom: 50px;
+    }
+
+    .beneficios-section h2 {
+      text-align: center;
+      color: #ff4500;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      border-left: 4px solid #ff4500;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .card h3 {
+      color: #ff4500;
+      margin-top: 0;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    /* Formulario de Registro */
+    .form-container {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      border: 1px solid #333;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #bbb;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background-color: #2b2b2b;
+      color: #fff;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #ff4500;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: #ff4500;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-submit:hover {
+      background-color: #e03e00;
+    }
+
+    /* Contacto Directo por Correo */
+    .direct-email {
+      text-align: center;
+      margin-top: 25px;
+      padding: 15px;
+      background-color: #262626;
+      border-radius: 8px;
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+
+    .direct-email a {
+      color: #ff4500;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .direct-email a:hover {
+      text-decoration: underline;
+    }
+
+    /* Botón Flotante de WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Motor Extreme Maracay</h1>
+    <p>Convocatoria & Reclutamiento de Promotoras Staff</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- Sección de Beneficios -->
+    <div class="beneficios-section">
+      <h2>Beneficios de Pertenecer al Staff</h2>
+      <div class="beneficios-grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-dollar-sign"></i> Pago Competitivo</h3>
+          <p>Excelente remuneración acordada por cada jornada de evento.</p>
         </div>
-        <button onclick="closeAlert()" class="text-slate-400 hover:text-white font-bold text-xl px-1.5">&times;</button>
+        <div class="card">
+          <h3><i class="fa-solid fa-shirt"></i> Indumentaria Oficial</h3>
+          <p>Uniformes y vestuario garantizados para todas las actividades del equipo.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-bullhorn"></i> Exposición e Imagen</h3>
+          <p>Oportunidad de proyección de marca junto a patrocinadores líderes del mundo motor.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- SECCIÓN 1: HERO VIDEO BACKGROUND (Primer video de TikTok) -->
-    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0 overflow-hidden">
-            <iframe class="absolute top-1/2 left-1/2 w-[300%] h-[300%] -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-50 object-cover" 
-                    src="https://www.tiktok.com/embed/v2/7300000000000000000" allow="autoplay"></iframe>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-black/60 to-black/80"></div>
-        </div>
-
-        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <span class="bg-red-600/20 border border-red-500 text-red-400 text-xs md:text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-4">
-                🔥 La Plataforma Oficial del Motor
-            </span>
-            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-wider text-white mb-4">
-                MOTOR<span class="accent-red">EXTREME</span>
-            </h1>
-            <p class="text-lg md:text-2xl text-slate-300 font-medium mb-8 max-w-2xl mx-auto">
-                Plataforma oficial de captación de promotoras, modelos de protocolo y colaboraciones para los mejores eventos de motor.
-            </p>
-            <div>
-                <a href="#registro" class="bg-red-neon text-white font-extrabold px-8 py-4 rounded-xl text-lg transition-transform hover:scale-105 uppercase tracking-wide inline-block shadow-lg">
-                    Regístrate como Promotora
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- SECCIÓN 2: FLYER OFICIAL DESTACADO (Parque Los Aviadores) -->
-    <section class="py-16 px-4 max-w-5xl mx-auto">
-        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-2xl grid md:grid-cols-2 gap-8 items-center">
-            <div>
-                <span class="text-yellow-400 font-bold uppercase tracking-widest text-xs">Evento Oficial Destacado</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2 mb-4">Centro Comercial Parque Los Aviadores</h2>
-                <p class="text-slate-300 mb-6 leading-relaxed">
-                    Prepárate para la gran expo automotora del país este <strong class="text-white">31 de octubre y 01 de noviembre</strong>. Car Audio, marcas oficiales, show de motores y las mejores modelos reunidas en un solo lugar.
-                </p>
-                <div class="flex items-center gap-4">
-                    <div class="bg-black/40 border border-red-500/40 px-4 py-3 rounded-xl text-center">
-                        <span class="block text-red-500 font-black text-xl">31</span>
-                        <span class="text-xs text-slate-400 uppercase">Octubre</span>
-                    </div>
-                    <span class="text-2xl font-bold text-slate-600">/</span>
-                    <div class="bg-black/40 border border-red-500/40 px-4 py-3 rounded-xl text-center">
-                        <span class="block text-red-500 font-black text-xl">01</span>
-                        <span class="text-xs text-slate-400 uppercase">Noviembre</span>
-                    </div>
-                </div>
-            </div>
-            <div class="relative group overflow-hidden rounded-2xl border-2 border-red-500/30 shadow-xl">
-                <img src="90967.jpg" alt="Flyer Motor Extreme Parque Los Aviadores" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 3: SEGUNDO VIDEO DE TIKTOK EN ALTA CALIDAD -->
-    <section class="py-16 px-4 bg-black/40 border-y border-slate-800">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="text-red-500 font-bold uppercase tracking-widest text-xs">Experiencia Inmersiva</span>
-            <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-4">Vive la Pasión Motorextreme</h2>
-            <p class="text-slate-400 mb-8 max-w-xl mx-auto">Disfrute visual en alta calidad de nuestros mejores momentos en pista y backstage.</p>
-            
-            <div class="relative w-full max-w-md mx-auto aspect-[9/16] rounded-3xl overflow-hidden border-2 border-red-500/40 shadow-2xl bg-slate-900 flex items-center justify-center">
-                <iframe class="w-full h-full object-cover" src="https://www.tiktok.com/embed/v2/7300000000000000001" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 4: CANALES Y REDES OFICIALES -->
-    <section class="py-16 px-4 max-w-5xl mx-auto text-center">
-        <span class="text-red-500 font-bold uppercase tracking-widest text-xs">Comunidad y Redes</span>
-        <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-8">Nuestras Cuentas Oficiales</h2>
+    <!-- Formulario Directo al Correo -->
+    <div class="form-container">
+      <h2>Formulario de Postulación</h2>
+      <form action="https://formsubmit.co/motorextrememaracay@gmail.com" method="POST">
         
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="https://instagram.com" target="_blank" class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl hover:border-red-500/80 transition-all group flex flex-col items-center">
-                <span class="text-3xl mb-2">📸</span>
-                <span class="font-extrabold text-white group-hover:text-red-500 transition-colors">Instagram</span>
-                <span class="text-xs text-slate-400 mt-1">@motorextrememaracay</span>
-            </a>
-            <a href="https://tiktok.com" target="_blank" class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl hover:border-red-500/80 transition-all group flex flex-col items-center">
-                <span class="text-3xl mb-2">🎵</span>
-                <span class="font-extrabold text-white group-hover:text-red-500 transition-colors">TikTok</span>
-                <span class="text-xs text-slate-400 mt-1">@motorextreme.oficial</span>
-            </a>
-            <a href="https://youtube.com" target="_blank" class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl hover:border-red-500/80 transition-all group flex flex-col items-center">
-                <span class="text-3xl mb-2">🎬</span>
-                <span class="font-extrabold text-white group-hover:text-red-500 transition-colors">YouTube</span>
-                <span class="text-xs text-slate-400 mt-1">Motorextreme TV</span>
-            </a>
-            <a href="mailto:Motorextrememaracay@gmail.com" class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl hover:border-red-500/80 transition-all group flex flex-col items-center">
-                <span class="text-3xl mb-2">📩</span>
-                <span class="font-extrabold text-white group-hover:text-red-500 transition-colors">Correo Oficial</span>
-                <span class="text-xs text-slate-400 mt-1">Motorextrememaracay@gmail.com</span>
-            </a>
-        </div>
-    </section>
+        <input type="hidden" name="_subject" value="Nueva Postulación de Promotora - Motor Extreme">
+        <input type="hidden" name="_captcha" value="false">
 
-    <!-- SECCIÓN 5: PATROCINADORES Y MARCAS OFICIALES (SPONSORS) -->
-    <section class="py-16 px-4 max-w-6xl mx-auto text-center border-t border-slate-800">
-        <span class="text-yellow-400 font-bold uppercase tracking-widest text-xs">Respaldo Comercial</span>
-        <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-8">Marcas & Patrocinadores Oficiales</h2>
-        
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 items-center justify-center">
-            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-center hover:border-red-500/50 transition-all">
-                <span class="font-extrabold text-white text-sm tracking-wider">STAR AUDIO</span>
-            </div>
-            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-center hover:border-red-500/50 transition-all">
-                <span class="font-extrabold text-white text-sm tracking-wider">KAIZEN SHOP</span>
-            </div>
-            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-center hover:border-red-500/50 transition-all">
-                <span class="font-extrabold text-white text-sm tracking-wider">POWER SU</span>
-            </div>
-            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-center hover:border-red-500/50 transition-all">
-                <span class="font-extrabold text-white text-sm tracking-wider">ASIATIC FEST</span>
-            </div>
-            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-center hover:border-red-500/50 transition-all">
-                <span class="font-extrabold text-white text-sm tracking-wider">AMSOIL</span>
-            </div>
-            <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-center hover:border-red-500/50 transition-all">
-                <span class="font-extrabold text-white text-sm tracking-wider">FIBEX TELECOM</span>
-            </div>
+        <div class="form-group">
+          <label for="nombre">Nombre y Apellido:</label>
+          <input type="text" id="nombre" name="Nombre" required placeholder="Ej: María Pérez">
         </div>
-    </section>
 
-    <!-- SECCIÓN 6: FORMULARIO DE POSTULACIÓN A CORREO OFICIAL -->
-    <section id="registro" class="py-20 px-4 max-w-2xl mx-auto">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-extrabold text-white">Postulación de Talentos</h2>
-                <p class="text-slate-400 text-sm mt-2">Envía tus datos y adjunta tu foto o video de portafolio a nuestro correo oficial.</p>
-            </div>
-            
-            <form action="mailto:Motorextrememaracay@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Nombre Completo</label>
-                    <input type="text" name="Nombre" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-red-500 focus:outline-none" placeholder="Tu nombre y apellido">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Edad</label>
-                        <input type="number" name="Edad" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-red-500 focus:outline-none" placeholder="Ej: 21">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Ciudad</label>
-                        <input type="text" name="Ciudad" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-red-500 focus:outline-none" placeholder="Ej: Maracay">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Usuario de Instagram</label>
-                    <input type="text" name="Instagram" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-red-500 focus:outline-none" placeholder="@tuusuario">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Adjuntar Foto o Video de Portafolio</label>
-                    <input type="file" name="Portafolio" accept="image/*,video/*" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-300 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-red-600 file:text-white hover:file:bg-red-700 cursor-pointer">
-                </div>
-                <button type="submit" class="w-full bg-red-neon text-white font-extrabold py-4 rounded-xl uppercase tracking-wider hover:opacity-90 transition-all mt-4 shadow-lg">
-                    Enviar Portafolio a Motorextreme 📧
-                </button>
-            </form>
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input type="number" id="edad" name="Edad" required placeholder="Ej: 22">
         </div>
-    </section>
 
-    <!-- Pie de página con enlaces a redes oficiales -->
-    <footer class="text-center py-8 text-slate-500 text-xs border-t border-slate-900">
-        <p class="mb-3">&copy; 2026 MOTOREXTREME. Todos los derechos reservados.</p>
-        <div class="flex justify-center gap-4 text-slate-400">
-            <a href="https://instagram.com" target="_blank" class="hover:text-red-500">Instagram</a>
-            <span>•</span>
-            <a href="https://tiktok.com" target="_blank" class="hover:text-red-500">TikTok</a>
-            <span>•</span>
-            <a href="mailto:Motorextrememaracay@gmail.com" class="hover:text-red-500">Contacto Directo</a>
+        <div class="form-group">
+          <label for="instagram">Usuario de Instagram / TikTok:</label>
+          <input type="text" id="instagram" name="Instagram" required placeholder="@tuusuario">
         </div>
-    </footer>
 
-    <script>
-        function closeAlert() {
-            document.getElementById('welcomeAlert').style.display = 'none';
-        }
-    </script>
+        <div class="form-group">
+          <label for="ubicacion">Ciudad de Residencia:</label>
+          <input type="text" id="ubicacion" name="Ubicacion" required placeholder="Ej: Maracay, Valencia...">
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Experiencia o Comentarios:</label>
+          <textarea id="mensaje" name="Mensaje" rows="4" placeholder="¿Has participado antes en eventos de protocolo o exposición?"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <i class="fa-solid fa-paper-plane"></i> Enviar Postulación
+        </button>
+      </form>
+
+      <!-- Botón / Enlace Directo al Correo -->
+      <div class="direct-email">
+        ¿Prefieres escribirnos directamente? <br>
+        Envíanos tus datos a: 
+        <a href="mailto:motorextrememaracay@gmail.com?subject=Postulación%20Promotora%20-%20Motor%20Extreme">motorextrememaracay@gmail.com</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Botón Flotante de WhatsApp -->
+  <a href="https://wa.me/584120537430?text=Hola%20Motor%20Extreme,%20quiero%20informaci%C3%B3n%20sobre%20la%20convocatoria%20de%20promotoras" 
+     class="whatsapp-btn" 
+     target="_blank" 
+     title="Escríbenos al WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
 </body>
 </html>
